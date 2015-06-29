@@ -5,7 +5,10 @@ const index_html_str = `<html>
 	<head>
 		<style>
 			body {
-			  font: 10px sans-serif;
+				font: 15px sans-serif;
+			}
+			#graph {
+				font: 10px sans-serif;
 			}
 
 			.axis path,
@@ -49,7 +52,7 @@ const index_html_str = `<html>
 				    .y0(height)
 				    .y1(function(d) { return y(d.level); });
 
-				var svg = d3.select("body").append("svg")
+				var svg = d3.select("#graph").append("svg")
 				    .attr("width", width + margin.left + margin.right)
 				    .attr("height", height + margin.top + margin.bottom)
 				  .append("g")
@@ -129,7 +132,15 @@ const index_html_str = `<html>
 		</script>
 	</head>
 	<body>
+		<h1>Blake's Raspberry Pi Sump Water Level Monitor</h1>
 		<div id="currentDepth" style="font: 15px sans-serif;"></div>
+		<div id="graph"></div>
+		<br>
+		<div>View Memory Usage: <a href="/profiler/info.html">here</a></div>
+		<br>
+		<h3>Source Code</h3>
+		<div>Sump: Raspberry Pi-based Sump Monitor - <a href="https://github.com/wblakecaldwell/sump">here</a></div>
+		<div>Memory profiler - <a href="https://github.com/wblakecaldwell/profiler">here</a></div>
 	</body>
 </html>
 `

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/wblakecaldwell/profiler"
 	"net/http"
 	"sync"
 	"time"
@@ -12,8 +13,6 @@ var (
 )
 
 func init() {
-	var panicWaterLevel = 10.0
-
 	database := NewMemoryDatabase()
 
 	// load config
@@ -37,10 +36,14 @@ func init() {
 	// all locking done at the handler level
 	rwMutex := sync.RWMutex{}
 
+	// standard endpoints
 	http.HandleFunc("/", indexHtmlHandler)
 	http.HandleFunc("/index.html", indexHtmlHandler)
 	http.HandleFunc("/info", buildSumpInfoHandler(database, 2*time.Hour, &rwMutex))
-	http.HandleFunc("/water-level", buildSumpRegisterLevelsHandler(database, panicWaterLevel, emailer, config.ServerSecret, &rwMutex))
+	http.HandleFunc("/water-level", buildSumpRegisterLevelsHandler(database, PanicWaterLevel, emailer, config.ServerSecret, &rwMutex))
+
+	// profiler endpoints
+	profiler.AddMemoryProfilingHandlers()
 }
 
 // FYI: No main() method for Google AppEngine
