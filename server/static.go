@@ -117,6 +117,9 @@ const index_html_str = `<html>
 					if (xmlhttp.readyState==4 && xmlhttp.status==200)
 					{
 						var jsonData = JSON.parse(xmlhttp.responseText);
+						var uptime = jsonData.Uptime;
+						document.getElementById('uptime').innerText = uptime;
+						
 						var waterLevels = jsonData.WaterLevels;
 						if(waterLevels.length > 0){
 							document.getElementById("currentDepth").innerHTML="Current depth: " + waterLevels[waterLevels.length -1].Level + " inches."
@@ -136,11 +139,13 @@ const index_html_str = `<html>
 		<div id="currentDepth" style="font: 15px sans-serif;"></div>
 		<div id="graph"></div>
 		<br>
-		<div>View Memory Usage: <a href="/profiler/info.html">here</a></div>
+		<div>Uptime: <span id="uptime"></span></div>
+		<div>Memory Usage: <a href="/profiler/info.html">here</a></div>
 		<br>
 		<h3>Source Code</h3>
 		<div>Sump: Raspberry Pi-based Sump Monitor - <a href="https://github.com/wblakecaldwell/sump">here</a></div>
 		<div>Memory profiler - <a href="https://github.com/wblakecaldwell/profiler">here</a></div>
 	</body>
 </html>
+
 `
