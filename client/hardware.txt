@@ -1,0 +1,39 @@
+Sump Pit Monitor
+================
+
+Components
+----------
+
+### Raspberry Pi A+
+
+http://www.raspberrypi.org/products/model-a-plus/
+
+
+### 8 Channel 10 BIt Analog ADC for Raspberry Pi
+
+https://www.adafruit.com/products/856
+
+Analog inputs used for:
+
+- water level sensor
+- mic for pump 1
+- mic for pump 2
+
+
+### Vktech Home Appliance DHT22/AM2302 Digital Temperature And Humidity Measurement Sensor
+
+https://www.adafruit.com/products/385
+
+Type:AM2302.
+Accuracy resolution:0.1.
+Humidity range:0-100%RH.
+Temperature range:-40~80°C.
+4-pin package.
+Ultra-low power.
+No additional components.
+Excellent long-term stability.
+All calibration, digital output.
+Completely interchangeable.
+Long distance signal transmission.
+Relative humidity and temperature measurement.
+

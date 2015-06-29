@@ -1,0 +1,13 @@
+package main
+
+// Global settings - update this with your settings
+var (
+	PanicWaterLevel   float64  = 10.0
+	ServerSecret      string   = ""
+	EmailRecipients   []string = []string{""}
+	EmailSMTPLogin    string   = ""
+	EmailSMTPPassword string   = ""
+	EmailSMTPServer   string   = ""
+	EMAILSMTPPort     int      = 587
+	EmailSender       string   = ""
+)
