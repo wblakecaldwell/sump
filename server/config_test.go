@@ -30,7 +30,7 @@ func TestNewConfigFromEnvVars(t *testing.T) {
 	EMAILSMTPPort = 123
 	EmailSender = "c@blakecaldwell.net"
 
-	config, err := NewConfigFromBuildVars()
+	config, err := NewConfigFromGlobals()
 	assert.NoError(t, err)
 	assert.NotNil(t, config)
 

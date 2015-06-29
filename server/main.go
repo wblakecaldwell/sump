@@ -17,9 +17,9 @@ func init() {
 	database := NewMemoryDatabase()
 
 	// load config
-	config, err := NewConfigFromBuildVars()
+	config, err := NewConfigFromGlobals()
 	if err != nil {
-		fmt.Printf("Error parsing configuration from environment variables: %s", err)
+		fmt.Printf("Error parsing configuration from global variables: %s", err)
 		global_error = err
 		return
 	}

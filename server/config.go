@@ -15,7 +15,7 @@ type Config struct {
 	EmailSender       string
 }
 
-func NewConfigFromBuildVars() (*Config, error) {
+func NewConfigFromGlobals() (*Config, error) {
 	c := Config{}
 
 	// water value
