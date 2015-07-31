@@ -51,9 +51,9 @@ func TestWaterLevelsEndpointSuccess(t *testing.T) {
 	levels, err := db.FetchWaterLevelHistory(10 * time.Hour)
 	assert.NoError(t, err)
 	assert.Equal(t, 3, len(levels))
-	assert.Equal(t, 1.5, levels[0].Level)
-	assert.Equal(t, 1.6, levels[1].Level)
-	assert.Equal(t, 1.7, levels[2].Level)
+	assert.Equal(t, float32(1.5), levels[0].Level)
+	assert.Equal(t, float32(1.6), levels[1].Level)
+	assert.Equal(t, float32(1.7), levels[2].Level)
 }
 
 // TestWaterLevelsEndpointFailure tests posting new water levels to the server - failures
@@ -122,10 +122,10 @@ func TestSumpInfoHandlerSuccess(t *testing.T) {
 
 	// verify water levels
 	assert.Equal(t, 2, len(pumpInfo.WaterLevels))
-	assert.Equal(t, now, pumpInfo.WaterLevels[0].Time)
-	assert.Equal(t, 1.5, pumpInfo.WaterLevels[0].Level)
-	assert.Equal(t, later, pumpInfo.WaterLevels[1].Time)
-	assert.Equal(t, 1.6, pumpInfo.WaterLevels[1].Level)
+	assert.Equal(t, now.Unix(), pumpInfo.WaterLevels[0].Time.Unix())
+	assert.Equal(t, float32(1.5), pumpInfo.WaterLevels[0].Level)
+	assert.Equal(t, later.Unix(), pumpInfo.WaterLevels[1].Time.Unix())
+	assert.Equal(t, float32(1.6), pumpInfo.WaterLevels[1].Level)
 
 	// verify start time, current time, uptime
 	assert.Equal(t, startTime.Unix(), pumpInfo.StartTimeEpochSeconds)

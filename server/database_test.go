@@ -27,8 +27,8 @@ func runSimpleScenario(t *testing.T, db Database) {
 	levels, err = db.FetchWaterLevelHistory(10 * time.Hour)
 	assert.NoError(t, err)
 	assert.Equal(t, 2, len(levels))
-	assert.Equal(t, 1.5, levels[0].Level)
+	assert.Equal(t, float32(1.5), levels[0].Level)
 	assert.Equal(t, now, levels[0].Time)
-	assert.Equal(t, 1.6, levels[1].Level)
+	assert.Equal(t, float32(1.6), levels[1].Level)
 	assert.Equal(t, later, levels[1].Time)
 }
